@@ -1,0 +1,12 @@
+telebot
+flask
+aiogram
+pyTelegramBotAPI
+python-telegram-bot
+pymongo
+aiohttp
+psutil
+motor
+pytz
+asyncssh
+nest_asyncio
