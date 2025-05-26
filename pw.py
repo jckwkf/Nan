@@ -420,13 +420,6 @@ def is_access_valid(user_id):
 
     return datetime.now(UTC) - granted_time < timedelta(hours=1)
 
-import asyncio
-
-async def print_hello():
-    while True:
-        print("Hello world")
-        await asyncio.sleep(5)
-
 async def run():
     app = Application.builder().token(TELEGRAM_BOT_TOKEN).build()
     app.add_handler(CommandHandler("start", start))
@@ -440,9 +433,6 @@ async def run():
     app.add_handler(CallbackQueryHandler(handle_verify_button))
     app.add_handler(MessageHandler(filters.VIDEO | filters.VIDEO_NOTE, handle_video))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_password_input))
-
-    # Start the hello-world task in background
-    asyncio.create_task(print_hello())
 
     await app.run_polling()
 
